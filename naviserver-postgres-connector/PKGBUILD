@@ -1,5 +1,5 @@
 # Maintainer: Markus Moser<marmoser@wu.ac.at>
-pkgname=('naviserver-postgres-connector')
+pkgname=naviserver-postgres-connector
 pkgver=4.99.8
 pkgrel=1
 pkgdesc="Naviserver postgres connector"

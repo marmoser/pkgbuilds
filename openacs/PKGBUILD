@@ -1,8 +1,8 @@
 # Maintainer: Markus Moser<marmoser@wu.ac.at>
-pkgname=('openacs')
+pkgname=openacs
 pkgver=5.9.0
 pkgrel=1
-pkgdesc="OpenACS is a toolkit for building scalable, community-oriented web applications."
+pkgdesc="a toolkit for building scalable, community-oriented web applications."
 arch=('x86_64')
 url="http://www.openacs.org"
 license=('GPL')
