@@ -7,7 +7,6 @@ arch=('i686' 'x86_64')
 url="https://bitbucket.org/naviserver/naviserver/"
 license=('MPL')
 depends=('tcllib>=1.17' 'tcl>=8.5.18' 'postgresql>=9.4' 'tdom>=0.8.3' 'xotcl>=1.6.8' 'naviserver>=4.99.8')
-provides=('naviserver-postgres-connector')
 source=("http://download.sourceforge.net/sourceforge/naviserver/naviserver-${pkgver}-modules.tar.gz")
 md5sums=("ef2966934440e4b2164f910d0aeb717b")
 

@@ -1,27 +1,26 @@
 # Maintainer: Markus Moser<marmoser@wu.ac.at>
 pkgname=('openacs')
-pkgver=5.8.1
+pkgver=5.9.0
 pkgrel=1
 pkgdesc="OpenACS is a toolkit for building scalable, community-oriented web applications."
-arch=('i686' 'x86_64')
-url="openacs.org"
+arch=('x86_64')
+url="http://www.openacs.org"
 license=('GPL')
 depends=('tcllib>=1.17' 'tcl>=8.5.18' 'postgresql>=9.4' 'tdom>=0.8.3' 'xotcl>=1.6.8' 'naviserver>=4.99.8' 'naviserver-postgres-connector>=4.99.8' 'systemd')
-provides=('openacs')
-source=("http://openacs.org/projects/openacs/download/download/openacs-5.8.1.tar.gz?revision_id=4197803"
+source=("http://openacs.org/projects/openacs/download/download/${pkgname}-${pkgver}.tar.gz?revision_id=4869825"
 "openacs.service"
-"config-oacs-5-8.tcl" )
-md5sums=("0b6e87868ee80ef646cca13cba49efc5"
-"6616816d4e126cf5dbbb588e68d75ede"
-"7418f76f9af7314f5a219c0472f459bb")
+"config-oacs-${pkgver}.tcl" )
+md5sums=("8ed8d374fe1995644d0bfb9e265d7a0c"
+"c838dfeeee8398c531f88eb218e49244"
+"b7d70f60b1b92b5d6714d4d8ccb39e3d")
 
 package() {
     install="${pkgbase}.install"
     #copy the content first
-    mkdir -p ${pkgdir}/usr/lib/$pkgname
-    cp -dr --no-preserve=ownership "${srcdir}/$pkgname-$pkgver/." "${pkgdir}/usr/lib/$pkgname/"
+    mkdir -p ${pkgdir}/usr/lib/${pkgname}
+    cp -dr "${srcdir}/${pkgname}-${pkgver}/." "${pkgdir}/usr/lib/${pkgname}/"
     #systemd service
     install -m 644 -D "${srcdir}/openacs.service" "${pkgdir}/usr/lib/systemd/system/openacs.service"
     #prepare config file
-    install -m 644 -D "${srcdir}/config-oacs-5-8.tcl" "${pkgdir}/etc/naviserver/config-oacs-5-8.tcl"
+    install -m 644 -D "${srcdir}/config-oacs-${pkgver}.tcl" "${pkgdir}/etc/naviserver/config-oacs-${pkgver}.tcl"
 }

@@ -7,14 +7,13 @@ arch=('i686' 'x86_64')
 url="https://bitbucket.org/naviserver/naviserver/"
 license=('MPL')
 depends=('tcllib>=1.17' 'tcl>=8.5.18' 'tdom>=0.8.3' 'xotcl>=1.6.8' 'systemd')
-provides=('naviserver')
-source=("http://download.sourceforge.net/sourceforge/naviserver/$pkgname-$pkgver.tar.gz" 
+source=("http://download.sourceforge.net/sourceforge/naviserver/${pkgname}-${pkgver}.tar.gz" 
 "naviserver.service")
 md5sums=("1db9e1c28e1768ad09fb9483f0692935" 
 "62410d8f8e0e7f74fdceb13ca8058895")
 
 build() {
-    cd "naviserver-$pkgver"
+    cd "naviserver-${pkgver}"
     msg "Starting make..."
     msg "make in $(pwd)"
     ./configure --prefix /usr 
@@ -23,7 +22,7 @@ build() {
 
 package() {
     install="${pkgname}.install"
-    cd $pkgname-$pkgver
+    cd ${pkgname}-${pkgver}
     #do not call make install since it creates a messy file structure
     #bin
     install -D nsd/nsd ${pkgdir}/usr/lib/naviserver/bin/nsd
